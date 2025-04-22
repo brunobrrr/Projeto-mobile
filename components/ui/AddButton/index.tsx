@@ -1,24 +1,23 @@
-import { styles } from './styles';
 import React from 'react';
 import {Text, TouchableOpacity} from 'react-native';
 import { Link, LinkProps } from 'expo-router';
+import { styles } from './styles';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 interface ButtonProps {
-    title: string;
     href: LinkProps['href'];
 }
 
-const LinkButton: React.FC<ButtonProps> = ({
-    title,
+const AddButton: React.FC<ButtonProps> = ({
     href
 }) => {
     return(
         <Link href={href} asChild>
             <TouchableOpacity style={styles.container}>
-                <Text style={styles.buttonText}>{title}</Text>
+                <Icon name='add-outline' size={30} color='white'></Icon>
             </TouchableOpacity>
         </Link>
     )
 }
 
-export default LinkButton;
+export default AddButton;

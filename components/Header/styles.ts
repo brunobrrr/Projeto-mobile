@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-    headerContainer: {
+    container: {
         paddingTop: 100,
         paddingBottom: 50,
         paddingHorizontal: '5%',
@@ -29,33 +29,9 @@ export const styles = StyleSheet.create({
         fontSize: 18,
         color: 'white',
     },
-    appInfo: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        marginTop: 5,
-        gap: 5
-    },
-    appNameText: {
-        color: 'white',
-        fontSize: 28,
-    },
-    icon: {
-        width: 30,
-        height: 30,
-    },
     backButton: {
         padding: 10,
         backgroundColor: '#FFFFFF70',
         borderRadius: 30
     },
-    appLogo: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        gap: 5
-    },
-    appLogoName: {
-        fontSize: 16,
-        color: 'white',
-        fontWeight: 'bold',
-    }
 })

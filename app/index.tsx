@@ -9,7 +9,7 @@ export default function Home() {
 		<>
 			<StatusBar translucent={true} backgroundColor="transparent" />
 			<Stack.Screen options={{ headerShown: false }} />
-			<View style={styles.container}>
+			<View style={styles.mainContainer}>
 				<MainHeader></MainHeader>
 				<Text style={styles.subtitle}>Selecione como você deseja entrar.</Text>
 				<LinkButton title="Entrar em turma" href="/" />
@@ -20,12 +20,13 @@ export default function Home() {
 }
 
 const styles = StyleSheet.create({
-	container: {
+	mainContainer: {
 		gap: 20,
 		height: '100%',
-		backgroundColor: '#C2C2C2'
+		backgroundColor: '#F2F2F2'
 	},
 	subtitle: {
+		color: '#001214',
 		textAlign: 'center',
 		fontSize: 16,
 		paddingBottom: 10
