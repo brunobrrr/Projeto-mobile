@@ -1,17 +1,21 @@
 import React from 'react';
-import { View, Text, StyleSheet, StatusBar } from "react-native";
-import { Link, Stack } from 'expo-router';
+import { View, Text, StyleSheet } from "react-native";
+import { Link } from 'expo-router';
 import SearchBar from '@/components/SearchBar';
 import AddButton from '@/components/ui/AddButton';
 import Logo from '@/components/ui/Logo';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Turmas from '@/components/Turmas';
+import { formatarNomeParaUrl } from "@/utils/formatarNomeParaUrl";
 
-const comunidade = () => {
+export default function Comunidade() {
+    const turmas = [
+		{ nome: "Desenvolvimento Web", alert: 3, groups: 6 },
+		{ nome: "Fundamentos de Redes de Computadores", alert: 5, groups: 10},
+	];
+
     return(
         <View style={styles.container}>
-            <StatusBar translucent={true} backgroundColor="transparent" />
-            <Stack.Screen options={{ headerShown: false }} />
             <View style={styles.navContainer}>
                 <Logo 
                     iconSource={require('../../assets/images/icon-laranja.png')} 
@@ -24,16 +28,15 @@ const comunidade = () => {
             <SearchBar />
             <Text style={styles.title}>Comunidade</Text>
             <AddButton href='/' />
-            <Turmas
-                title='Desenvolvimento Web'
-                alerts={3}
-                groupQuantity={10}>
-            </Turmas>
-            <Turmas
-                title='Fundamentos de Redes de Computadores'
-                alerts={5}
-                groupQuantity={7}>
-            </Turmas>
+			{turmas.map((turma) => (
+				<Link key={turma.nome} href={{pathname: '/tabs/turma/[nomeDaTurma]', params: { nomeDaTurma: formatarNomeParaUrl(turma.nome) }}}>
+					<Turmas
+						title={turma.nome}
+						alerts={turma.alert}
+						groupQuantity={turma.groups}
+					></Turmas>
+				</Link>
+			))}
         </View>
     )
 }
@@ -61,6 +64,3 @@ const styles = StyleSheet.create({
         marginVertical: 20 
     }
 })
-
-
-export default comunidade;

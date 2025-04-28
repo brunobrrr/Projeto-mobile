@@ -5,10 +5,9 @@ export const styles = StyleSheet.create({
         paddingHorizontal: 20,
         paddingVertical: 15,
         alignItems: 'center',
-        alignSelf: 'center',
         backgroundColor: '#F2994B',
-        width: '80%',
         borderRadius: 15,
+        width: '100%'
     },
     buttonText: {
         fontSize: 16,

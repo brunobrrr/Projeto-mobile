@@ -1,23 +1,30 @@
 import React from 'react';
-import { View, Text, StyleSheet, StatusBar } from "react-native";
-import { Link, Stack } from 'expo-router';
+import { View, Text, StyleSheet } from "react-native";
+import { Link, useRouter } from 'expo-router';
 import AuthHeader from '../../components/Header/AuthHeader';
 import LinkButton from '@/components/ui/LinkButton';
 
-const criarTurma = () => {
+export default function CriarTurma() {
+    const router = useRouter();
+    const entrarNaConta = () => {
+        router.push('/tabs/comunidade');
+    }
     return(
-        <>
-            <StatusBar translucent={true} backgroundColor="transparent" />
-            <Stack.Screen options={{ headerShown: false }} />
-            <View>
-                <AuthHeader title='Entre na sua conta' subtitle='' href="/"></AuthHeader>
-                <LinkButton title='Entrar' href="/tabs/comunidade"></LinkButton>
-                <Link href="/tabs/authRegistro">
-                    <Text>Cadastre-se</Text>
-                </Link>
-            </View>
-        </>
+        <View>
+            <AuthHeader title='Entre na sua conta' subtitle='' href="/"></AuthHeader>
+            <Link href='/tabs/Comunidade' style={styles.link}>
+                <LinkButton title='Entrar' />
+            </Link>
+            <Link href="/tabs/Registro">
+                <Text>Cadastre-se</Text>
+            </Link>
+        </View>
     );
 }
 
-export default criarTurma;
+const styles = StyleSheet.create({
+	link: {
+		alignSelf: 'center',
+		width: '80%',
+	}
+})

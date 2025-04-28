@@ -1,23 +1,19 @@
 import { styles } from './styles';
 import React from 'react';
-import {Text, TouchableOpacity} from 'react-native';
+import {Text, TouchableOpacity, View} from 'react-native';
 import { Link, LinkProps } from 'expo-router';
 
 interface ButtonProps {
     title: string;
-    href: LinkProps['href'];
 }
 
 const LinkButton: React.FC<ButtonProps> = ({
-    title,
-    href
+    title
 }) => {
     return(
-        <Link href={href} asChild>
-            <TouchableOpacity style={styles.container}>
-                <Text style={styles.buttonText}>{title}</Text>
-            </TouchableOpacity>
-        </Link>
+    <View style={styles.container}>
+        <Text style={styles.buttonText}>{title}</Text>
+    </View>
     )
 }
 
