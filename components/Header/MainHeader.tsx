@@ -11,8 +11,8 @@ const MainHeader = () => {
         <Text style={styles.title}>{title}</Text>        
         <Logo 
             iconSource={require('../../assets/images/icon-branco.png')} 
-            textStyle={{color: '#FFFFFF', fontSize: 28}}>
-        </Logo>
+            textStyle={{color: '#FFFFFF', fontSize: 28}}
+        />
     </View>
     )
 }

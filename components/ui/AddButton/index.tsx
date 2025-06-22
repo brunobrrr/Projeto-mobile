@@ -14,7 +14,7 @@ const AddButton: React.FC<ButtonProps> = ({
     return(
         <Link href={href} asChild>
             <TouchableOpacity style={styles.container}>
-                <Icon name='add-outline' size={30} color='white'></Icon>
+                <Icon name='add-outline' size={30} color='white' />
             </TouchableOpacity>
         </Link>
     )

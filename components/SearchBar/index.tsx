@@ -6,8 +6,8 @@ import Icon from 'react-native-vector-icons/Ionicons';
 const SearchBar = () => {
     return(
         <View style={styles.container}>
-            <Icon name='search-outline' size={20} color="gray"></Icon>
-            <TextInput placeholder="Pesquisar..." style={styles.input}></TextInput>
+            <Icon name='search-outline' size={20} color="gray" />
+            <TextInput placeholder="Pesquisar..." style={styles.input} />
         </View>
     )
 }

@@ -24,9 +24,8 @@ export const styles = StyleSheet.create({
         fontSize: 28,
         color: 'white',
         fontWeight: 'bold',
-    },
-    subtitle: {
-        fontSize: 1,
+    },    subtitle: {
+        fontSize: 16,
         color: 'white',
     },
     backButton: {

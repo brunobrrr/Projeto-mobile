@@ -21,11 +21,10 @@ const AuthHeader: React.FC<HeaderProps> = ({
             <View style={styles.appNav}>
                 <Link href={href} asChild style={styles.backButton}>
                     <Icon name="chevron-back" size={24} color="white" />
-                </Link>              
-                <Logo 
+                </Link>                <Logo 
                     iconSource={require('../../assets/images/icon-branco.png')} 
-                    textStyle={{color: '#FFFFFF', fontSize: 16, fontWeight: 'bold'}}>
-                </Logo>
+                    textStyle={{color: '#FFFFFF', fontSize: 16, fontWeight: 'bold'}}
+                />
             </View>
             <View style={styles.textContainer}>
                 <Text style={styles.title}>{title}</Text>

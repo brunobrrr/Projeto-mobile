@@ -4,61 +4,85 @@ import {
   Text, 
   TextInput, 
   StyleSheet, 
-  TouchableOpacity 
+  TouchableOpacity,
+  Alert
 } from 'react-native';
 import { useRouter } from 'expo-router';
-import AuthHeader from '@/components/Header/AuthHeader';
+import AuthHeader from '../../../components/Header/AuthHeader';
 
 export default function CriarTurma() {
   const router = useRouter();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [nomeTurma, setNomeTurma] = useState('');
+  const [descricao, setDescricao] = useState('');
+  const [codigo, setCodigo] = useState('');
 
-  const handleLogin = () => {
-    router.push('/tabs/comunidade');
-  };
-
-  const handleRegister = () => {
-    router.push('/tabs/Registro');
+  const handleCriarTurma = () => {
+    if (!nomeTurma || !descricao) {
+      Alert.alert('Erro', 'Por favor, preencha todos os campos obrigatórios.');
+      return;
+    }
+    
+    // Gerar código se não fornecido
+    const codigoTurma = codigo || Math.random().toString(36).substring(2, 8).toUpperCase();
+    
+    Alert.alert(
+      'Turma Criada!', 
+      `Turma "${nomeTurma}" criada com sucesso!\nCódigo: ${codigoTurma}`,
+      [
+        {
+          text: 'OK',
+          onPress: () => router.push('/tabs/comunidade')
+        }
+      ]
+    );
   };
 
   return (
     <View style={styles.container}>
-      {/* Cabeçalho azul unificado e ajustado */}
       <View style={styles.headerContainer}>
-        <AuthHeader title="Entre na sua conta" subtitle="" href="/" />
+        <AuthHeader title="Criar Turma" subtitle="Configure sua nova turma" href="/" />
       </View>
 
-      {/* Inputs mais próximos ao cabeçalho */}
       <View style={styles.formContainer}>
         <TextInput
           style={styles.input}
-          placeholder="Email"
+          placeholder="Nome da Turma *"
           placeholderTextColor="#666"
-          value={email}
-          onChangeText={setEmail}
-          keyboardType="email-address"
-          autoCapitalize="none"
+          value={nomeTurma}
+          onChangeText={setNomeTurma}
         />
+        
+        <TextInput
+          style={styles.inputMultiline}
+          placeholder="Descrição da Turma *"
+          placeholderTextColor="#666"
+          value={descricao}
+          onChangeText={setDescricao}
+          multiline
+          numberOfLines={4}
+          textAlignVertical="top"
+        />
+        
         <TextInput
           style={styles.input}
-          placeholder="Senha"
+          placeholder="Código da Turma (opcional)"
           placeholderTextColor="#666"
-          secureTextEntry
-          value={password}
-          onChangeText={setPassword}
+          value={codigo}
+          onChangeText={setCodigo}
+          autoCapitalize="characters"
+          maxLength={6}
         />
-        <TouchableOpacity style={styles.button} onPress={handleLogin}>
-          <Text style={styles.buttonText}>Entrar</Text>
+
+        <TouchableOpacity style={styles.button} onPress={handleCriarTurma}>
+          <Text style={styles.buttonText}>Criar Turma</Text>
         </TouchableOpacity>
       </View>
 
-      {/* Texto "Não tem conta?" e botão de cadastro */}
-      <View style={styles.registerContainer}>
-        <Text style={styles.infoText}>Não tem conta?</Text>
-        <TouchableOpacity style={styles.register} onPress={handleRegister}>
-          <Text style={styles.registerText}>Cadastre-se</Text>
-        </TouchableOpacity>
+      <View style={styles.infoContainer}>
+        <Text style={styles.infoText}>
+          * Campos obrigatórios{'\n'}
+          Se você não definir um código, um será gerado automaticamente.
+        </Text>
       </View>
     </View>
   );
@@ -74,11 +98,10 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 0,
     width: '100%',
-    paddingVertical: 0, // Reduzindo espaço acima,
-    //justifyContent: 'flex-end',
+    paddingVertical: 0,
   },
   formContainer: {
-    marginTop: 2, // Inputs mais próximos ao cabeçalho
+    marginTop: 2,
     paddingHorizontal: 20,
   },
   input: {
@@ -86,37 +109,43 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF',
     borderRadius: 10,
     paddingHorizontal: 15,
-    marginBottom: 12, // Reduzindo espaçamento entre os inputs
+    marginBottom: 12,
+    fontSize: 16,
+    borderWidth: 1,
+    borderColor: '#ccc',
+  },
+  inputMultiline: {
+    minHeight: 100,
+    backgroundColor: '#FFF',
+    borderRadius: 10,
+    paddingHorizontal: 15,
+    paddingVertical: 12,
+    marginBottom: 12,
     fontSize: 16,
     borderWidth: 1,
     borderColor: '#ccc',
   },
   button: {
     height: 50,
-    backgroundColor: '#FF3B30',
+    backgroundColor: '#19486A',
     borderRadius: 8,
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: 10,
   },
   buttonText: {
     color: '#FFF',
     fontWeight: 'bold',
     fontSize: 18,
   },
-  registerContainer: {
-    alignSelf: 'center',
-    alignItems: 'center',
+  infoContainer: {
+    paddingHorizontal: 20,
     marginTop: 20,
   },
   infoText: {
-    fontSize: 16,
+    fontSize: 14,
     color: '#666',
-    marginBottom: 5, // Espaçamento entre o texto e o botão
-  },
-  registerText: {
-    color: '#007AFF',
-    fontSize: 16,
+    textAlign: 'center',
+    lineHeight: 20,
   },
 });
-// Adicionei o TouchableOpacity para o botão de cadastro e o texto "Não tem conta?".
-// O botão de cadastro agora leva o usuário para a tela de registro.  
