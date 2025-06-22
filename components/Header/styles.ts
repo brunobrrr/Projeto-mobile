@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
     container: {
-        paddingTop: 100,
+        paddingTop: 125,
         paddingBottom: 50,
         paddingHorizontal: '5%',
         alignItems: 'center',
@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
     },
     textContainer: {
         width: '100%',
-        marginTop: 10,
+        marginTop: 40,
     },
     title: {
         fontSize: 28,
@@ -26,12 +26,12 @@ export const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     subtitle: {
-        fontSize: 18,
+        fontSize: 1,
         color: 'white',
     },
     backButton: {
         padding: 10,
         backgroundColor: '#FFFFFF70',
-        borderRadius: 30
-    },
+        borderRadius: 30,
+         marginLeft: 5,},
 })

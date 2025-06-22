@@ -9,7 +9,7 @@ const Registro = () => {
         <View>
             <AuthHeader title='Registre-se' subtitle='Crie a sua conta' href="/"></AuthHeader>
             <Link href="/tabs/CriarTurma">
-                <Text>Entre</Text>
+                <Text>Entgggt5tre</Text>
             </Link>
         </View>
     );

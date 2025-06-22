@@ -4,15 +4,14 @@ import { Link, Stack } from 'expo-router';
 import MainHeader from '../components/Header/MainHeader'
 import LinkButton from '../components/ui/LinkButton';
 
-export default function Home() {
-	return (
+export default function Home() {	return (
 		<View style={styles.mainContainer}>
 			<MainHeader></MainHeader>
 			<Text style={styles.subtitle}>Selecione como você deseja entrar.</Text>
 			<Link href='/' style={styles.link}>
 				<LinkButton title="Entrar em turma" />
 			</Link>
-			<Link href='/tabs/CriarTurma' style={styles.link}>
+			<Link href='/tabs/turma/criarTurma' style={styles.link}>
 				<LinkButton title="Criar turma" />
 			</Link>
 		</View>
@@ -30,7 +29,7 @@ const styles = StyleSheet.create({
 		color: '#001214',
 		textAlign: 'center',
 		fontSize: 16,
-		paddingBottom: 10
+		paddingBottom: 10,
 	},
 	link: {
 		alignSelf: 'center',

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from "react-native";
 import { Link } from 'expo-router';
-import SearchBar from '@/components/SearchBar';
+import SearchBar from '../../components/SearchBar';
 import AddButton from '@/components/ui/AddButton';
 import Logo from '@/components/ui/Logo';
 import Icon from 'react-native-vector-icons/Ionicons';
